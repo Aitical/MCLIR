@@ -6,6 +6,9 @@
 
 [AIIA Lab](https://aiialabhit.github.io/team/), Harbin Institute of Technology, Harbin 150001, China.
 
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAitical%2FTask-agnostic_Model_Contrastive_Learning_Image_Restoration&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 </div>
 
 
