@@ -188,7 +188,7 @@ With just a few modifications to your own training scripts, you can easily integ
 </div>
 <br />
 
-### Image Hehazing
+### Image Dehazing
 
 <div style="text-align: center">
 <img src="https://s1.imagehub.cc/images/2023/08/15/FFANet_Vision.jpeg" alt="FFANet_Vision.jpeg" border="0" />
