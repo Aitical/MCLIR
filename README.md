@@ -2,17 +2,18 @@
 
 # Learning from History: Task-agnostic Model Contrastive Learning for Image Restoration
 
-[Gang Wu](https://scholar.google.com/citations?user=JSqb7QIAAAAJ), [Junjun Jiang](http://homepage.hit.edu.cn/jiangjunjun), [Kui Jiang](https://github.com/kuijiang94), and [Xianming Liu](http://homepage.hit.edu.cn/xmliu)
+[Gang Wu (吴刚)](https://scholar.google.com/citations?user=JSqb7QIAAAAJ), [Junjun Jiang (江俊君)](http://homepage.hit.edu.cn/jiangjunjun), [Kui Jiang (江奎)](https://github.com/kuijiang94), and [Xianming Liu (刘贤明)](http://homepage.hit.edu.cn/xmliu)
 
 [AIIA Lab](https://aiialabhit.github.io/team/), Harbin Institute of Technology, Harbin 150001, China.
 
 [![Paper](http://img.shields.io/badge/Paper-arxiv.2309.06023-FF6B6B.svg)](https://arxiv.org/abs/2309.06023)
+[![arXiv](https://img.shields.io/badge/AAAI-2024-red.svg)](https://arxiv.org/abs/2309.06023)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAitical%2FTask-agnostic_Model_Contrastive_Learning_Image_Restoration&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 </div>
 
 
-> Contrastive learning has emerged as a prevailing paradigm for high-level vision tasks, which, by introducing properly negative samples, has also been exploited for low-level vision tasks to achieve a compact optimization space to account for their ill-posed nature. However, existing methods rely on manually predefined, task-oriented negatives, which often exhibit pronounced task-specific biases. In this paper, we propose a innovative approach for the adaptive generation of negative samples directly from the target model itself, called *learning from history*. We introduce the Self-Prior guided Negative loss for image restoration (SPNIR) to enable this approach. Our approach is task-agnostic and generic, making it compatible with any existing image restoration method or task. We demonstrate the effectiveness of our approach by retraining existing models with SPNIR. The results show significant improvements in image restoration across various tasks and architectures. For example, models retrained with SPNIR outperform the original FFANet and DehazeFormer by 3.41 dB and 0.57 dB on the RESIDE indoor dataset for image dehazing. Similarly, they achieve notable improvements of 0.47 dB on SPA-Data over IDT for image deraining and 0.12 dB on Manga109 for a 4x scale super-resolution over lightweight SwinIR, respectively. 
+> Contrastive learning has emerged as a prevailing paradigm for high-level vision tasks, which, by introducing properly negative samples, has also been exploited for low-level vision tasks to achieve a compact optimization space to account for their ill-posed nature. However, existing methods rely on manually predefined and task-oriented negatives, which often exhibit pronounced task-specific biases. To address this challenge, our paper introduces an innovative method termed 'learning from history', which dynamically generates negative samples from the target model itself. Our approach, named Model Contrastive paradigm for Image Restoration (MCIR), rejuvenates latency models as negative models, making it compatible with diverse image restoration tasks. We propose the Self-Prior guided Negative loss (SPN) to enable it. This approach significantly enhances existing models when retrained with the proposed model contrastive paradigm. The results show significant improvements in image restoration across various tasks and architectures. For example, models retrained with SPN outperform the original FFANet and DehazeFormer by 3.41 dB and 0.57 dB on the RESIDE indoor dataset for image dehazing. Similarly, they achieve notable improvements of 0.47 dB on SPA-Data over IDT for image deraining and 0.12 dB on Manga109 for a 4x scale super-resolution over lightweight SwinIR, respectively. 
 
 ## Model Contrastive Paradigm for Image Restoration
 <div style="text-align: center">
