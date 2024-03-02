@@ -458,13 +458,25 @@ FFA-Net: Feature Fusion Attention Network for Single Image Dehazing. AAAI 2020: 
 - 	Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, Kyoung Mu Lee:
 Enhanced Deep Residual Networks for Single Image Super-Resolution. CVPR Workshops 2017: 1132-1140
 - G. Wu, J. Jiang and X. Liu, "A Practical Contrastive Learning Framework for Single-Image Super-Resolution," in IEEE Transactions on Neural Networks and Learning Systems, doi: 10.1109/TNNLS.2023.3290038
-        
-        
-        
-        
-        
-        
+-   
 - Haiyan Wu, Yanyun Qu, Shaohui Lin, Jian Zhou, Ruizhi Qiao, Zhizhong Zhang, Yuan Xie, Lizhuang Ma:
 Contrastive Learning for Compact Single Image Dehazing. CVPR 2021: 10551-10560
 - Yu Zheng, Jiahui Zhan, Shengfeng He, Junyu Dong, Yong Du:
 Curricular Contrastive Regularization for Physics-aware Single Image Dehazing. CVPR 2023
+
+## Citation
+
+If you find this project useful, please consider citing:
+
+```bibtex
+@inproceedings{MCLIR,
+  author       = {Gang Wu and
+                  Junjun Jiang and
+                  Kui Jiang and
+                  Xianming Liu},
+  title        = {Learning from History: Task-agnostic Model Contrastive Learning for
+                  Image Restoration},
+  booktitle    = {AAAI},
+  year         = {2024}
+}
+```
