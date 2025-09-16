@@ -1,0 +1,118 @@
+name: MCLIR-FFANet_RESIDE_IN_Reproduce_FromScratch
+model_type: ImageRestorationModel_FFANet_Neg_Multi
+scale: 1
+num_gpu: 1
+manual_seed: 42
+
+datasets:
+  train:
+    name: RESIDE-IN
+    type: PairedImageDataset
+    dataroot_gt: /data_nvme/AirNet-Data/test/dehaze/SOTS_outdoor/target/
+    dataroot_lq: /data_nvme/AirNet-Data/test/dehaze/SOTS_outdoor/target/
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+    gt_size: 128
+    use_hflip: true
+    use_rot: true
+
+    # data loader
+    use_shuffle: true
+    num_worker_per_gpu: 4
+    batch_size_per_gpu: 4
+    dataset_enlarge_ratio: 1
+    pin_memory: true
+
+  val:
+    name: ITS
+    type: PairedImageDataset
+    dataroot_gt: /data_nvme/AirNet-Data/test/dehaze/SOTS_outdoor/target/
+    dataroot_lq: /data_nvme/AirNet-Data/test/dehaze/SOTS_outdoor/target/
+    io_backend:
+      type: disk
+
+network_g:
+  type: FFANet
+  gps: 3
+  blocks: 19
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+  
+path_neg:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+
+# training settings
+train:
+  use_grad_norm: 0.05
+  ema_decay: 0.999
+  neg_decay: [0.1, 0.1, 0.1, 0.1]
+  neg_iter: [100, 200, 500, 1000]
+  neg_start: 0.1
+
+  optim_g:
+    type: AdamW
+    lr: !!float 2e-4
+    weight_decay: 0.0
+    betas: [0.9, 0.9]
+
+  scheduler:
+    type: TrueCosineAnnealingLR
+    T_max: 100000
+    eta_min: !!float 1e-8
+
+  total_iter: 500000
+  warmup_iter: -1 # no warm up
+
+  # losses
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+  perceptual_opt:
+    type: PerceptualLoss
+    layer_weights:
+      'relu1_2': 0.2  # before relu
+      'relu2_2': 0.3  # before relu
+      'relu3_3': 0.5  # before relu
+    vgg_type: vgg16
+    use_input_norm: true
+    range_norm: false
+    perceptual_weight: 0.001
+    style_weight: 0
+    criterion: l1
+# validation settings
+val:
+  val_freq: !!float 5e3
+  save_img: false
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false
+
+# logging settings
+logger:
+  print_freq: 200
+  save_checkpoint_freq: !!float 5e3
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
